@@ -5,6 +5,7 @@ Single-file portfolio site (`index.html`) — no build step, no dependencies bey
 ## Files
 - `index.html` — the whole site (HTML + CSS + JS)
 - `resume.pdf` — linked from the "Résumé" button in the hero
+- `og-image.png` — 1200×630 social preview (LinkedIn / Twitter cards)
 - `README.md` — this file
 
 ## Edit
