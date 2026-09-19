@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Shahram Sajawal — Business Analytics &amp; Finance</title>
+<meta name="description" content="Portfolio of Shahram Sajawal — M.Sc. Business Analytics at Dublin Business School. Financial reporting, BI dashboards, and AI model evaluation." />
+
+<meta property="og:title" content="Shahram Sajawal — Business Analytics &amp; Finance" />
+<meta property="og:description" content="Financial reporting, BI dashboards, and AI evaluation data. M.Sc. Business Analytics at Dublin Business School." />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23158f7c'/%3E%3Ctext x='16' y='22' font-family='Arial' font-weight='bold' font-size='15' fill='white' text-anchor='middle'%3ESS%3C/text%3E%3C/svg%3E" />
+
+<style>
+  /* ============================================================
+     THEME TOKENS
+     ============================================================ */
+  :root{
+    --bg:#f3f7f4;
+    --bg-grid:rgba(20,110,90,.07);
+    --surface:#ffffff;
+    --surface-2:#f6faf7;
+    --ink:#14262b;
+    --muted:#5b6f74;
+    --line:#d9ebe4;
+
+    --teal:#8ee3d0;
+    --coral:#ffa98f;
+    --amber:#ffd580;
+    --sage:#9fe6b8;
+    --sun:#ffe3a1;
+
+    --accent:#158f7c;
+    --accent-ink:#0b5f52;
+
+    --hard:#14262b;
+    color-scheme: light;
+  }
+  :root[data-theme="dark"]{
+    --bg:#0e1a1c;
+    --bg-grid:rgba(120,220,200,.06);
+    --surface:#162527;
+    --surface-2:#1c2e31;
+    --ink:#eaf6f2;
+    --muted:#9db8b4;
+    --line:#284043;
+    --teal:#3fb8a3;
+    --coral:#e58a74;
+    --amber:#d9b56a;
+    --sage:#6fcf9f;
+    --sun:#d9b56a;
+    --accent:#5fdcc6;
+    --accent-ink:#dffaf3;
+    --hard:#07100f;
+    color-scheme: dark;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0e1a1c;
+      --bg-grid:rgba(120,220,200,.06);
+      --surface:#162527;
+      --surface-2:#1c2e31;
+      --ink:#eaf6f2;
+      --muted:#9db8b4;
+      --line:#284043;
+      --teal:#3fb8a3;
+      --coral:#e58a74;
+      --amber:#d9b56a;
+      --sage:#6fcf9f;
+      --sun:#d9b56a;
+      --accent:#5fdcc6;
+      --accent-ink:#dffaf3;
+      --hard:#07100f;
+      color-scheme: dark;
+    }
+  }
+
+  /* ============================================================ BASE */
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  html.js .reveal{opacity:0;transform:translateY(18px)}
+  html.js .reveal.is-in{opacity:1;transform:none;transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
+  body{
+    margin:0;
+    font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    color:var(--ink);
+    background:
+      radial-gradient(closest-side,var(--bg-grid) 1px,transparent 1px) 0 0/26px 26px,
+      var(--bg);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit}
+  h1,h2,h3,h4{font-family:"Fredoka",system-ui,sans-serif;line-height:1.15;margin:0;font-weight:600}
+  p{margin:0}
+  img{max-width:100%;display:block}
+  ::selection{background:var(--coral);color:#14262b}
+
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+  .mono{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
+
+  .card{
+    background:var(--surface);
+    border:2px solid var(--hard);
+    border-radius:22px;
+    box-shadow:6px 6px 0 var(--hard);
+  }
+  :focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+
+  /* ============================================================ NAV */
+  .nav{position:fixed;top:14px;left:0;right:0;z-index:60;display:flex;justify-content:center;pointer-events:none}
+  .nav__inner{
+    pointer-events:auto;display:flex;align-items:center;gap:6px;
+    background:var(--surface);border:2px solid var(--hard);border-radius:999px;
+    box-shadow:4px 4px 0 var(--hard);padding:7px 10px 7px 12px;
+    max-width:calc(100% - 28px);
+  }
+  .brand{font-family:"Fredoka",sans-serif;font-weight:700;display:flex;align-items:center;gap:9px;text-decoration:none;padding-right:6px;white-space:nowrap}
+  .brand .dot{
+    width:27px;height:27px;border-radius:8px;display:grid;place-items:center;
+    background:var(--accent);color:#fff;font-size:11px;font-weight:700;letter-spacing:.03em;
+    border:2px solid var(--hard);transform:rotate(-6deg);
+  }
+  .nav__links{display:flex;gap:2px}
+  .nav__links a{text-decoration:none;font-size:13.5px;font-weight:600;color:var(--muted);padding:7px 11px;border-radius:999px;transition:.18s;white-space:nowrap}
+  .nav__links a:hover{color:var(--ink);background:var(--surface-2)}
+  .nav__links a.active{color:var(--accent-ink);background:var(--line)}
+  .nav__btns{display:flex;gap:6px;align-items:center;margin-left:4px}
+  .iconbtn{
+    width:34px;height:34px;flex:0 0 34px;border-radius:10px;
+    border:2px solid var(--hard);background:var(--surface-2);
+    display:grid;place-items:center;cursor:pointer;font-size:14px;color:var(--ink);transition:transform .15s;
+  }
+  .iconbtn:hover{transform:translateY(-2px)}
+  .nav__toggle{display:none}
+
+  @media (max-width:900px){
+    .nav__links{
+      position:absolute;top:calc(100% + 10px);left:0;right:0;flex-direction:column;gap:4px;
+      background:var(--surface);border:2px solid var(--hard);border-radius:18px;
+      box-shadow:5px 5px 0 var(--hard);padding:10px;display:none;
+    }
+    .nav__links.open{display:flex}
+    .nav__links a{padding:10px 12px;font-size:15px}
+    .nav__toggle{display:grid}
+    .nav__inner{width:calc(100% - 28px);justify-content:space-between}
+  }
+
+  /* ============================================================ HERO */
+  .hero{padding:132px 0 40px;position:relative}
+  .blob{position:absolute;border-radius:50%;filter:blur(38px);opacity:.55;z-index:-1;animation:float 12s ease-in-out infinite}
+  .blob.b1{width:340px;height:340px;background:var(--teal);top:40px;left:-90px}
+  .blob.b2{width:300px;height:300px;background:var(--coral);top:180px;right:-70px;animation-delay:-3s}
+  .blob.b3{width:260px;height:260px;background:var(--amber);top:420px;left:36%;animation-delay:-6s}
+  @keyframes float{0%,100%{transform:translateY(0) translateX(0)}50%{transform:translateY(-26px) translateX(14px)}}
+
+  .hero__grid{display:grid;grid-template-columns:1.35fr .9fr;gap:38px;align-items:center}
+  @media (max-width:860px){.hero__grid{grid-template-columns:1fr;gap:30px}}
+
+  .pill{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--surface);border:2px solid var(--hard);border-radius:999px;
+    padding:6px 13px;font-size:13px;font-weight:600;box-shadow:3px 3px 0 var(--hard);
+  }
+  .pulse{width:9px;height:9px;border-radius:50%;background:#25c281;animation:pulse 2s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,194,129,.55)}70%{box-shadow:0 0 0 10px rgba(37,194,129,0)}100%{box-shadow:0 0 0 0 rgba(37,194,129,0)}}
+
+  .hero h1{font-size:clamp(2.7rem,7vw,4.4rem);font-weight:700;margin:20px 0 8px;letter-spacing:-.02em}
+  .hero h1 .hl{background:linear-gradient(120deg,#ff7a5c,var(--accent) 50%,#e9a12e);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero__role{font-size:clamp(1.05rem,2.5vw,1.32rem);font-weight:600;color:var(--ink);max-width:30ch}
+  .hero__sub{margin-top:12px;max-width:48ch;color:var(--muted);font-size:1rem}
+  .hero__sub + .hero__sub{margin-top:8px}
+  .hero__sub b{color:var(--ink);font-weight:600}
+
+  .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;text-decoration:none;
+    font-weight:700;font-size:14.5px;padding:12px 18px;border-radius:14px;
+    border:2px solid var(--hard);cursor:pointer;transition:transform .15s,box-shadow .15s;
+    font-family:"Fredoka",sans-serif;background:var(--surface);color:var(--ink);
+  }
+  .btn--primary{background:var(--accent);color:#fff;box-shadow:5px 5px 0 var(--hard)}
+  .btn--ghost{background:var(--surface);color:var(--ink);box-shadow:5px 5px 0 var(--hard)}
+  .btn:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--hard)}
+  .btn:active{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--hard)}
+
+  .scores{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:30px}
+  @media (max-width:520px){.scores{grid-template-columns:repeat(2,1fr)}}
+  .score{background:var(--surface);border:2px solid var(--hard);border-radius:16px;padding:12px 10px;text-align:center;box-shadow:3px 3px 0 var(--hard)}
+  .score b{display:block;font-family:"Fredoka",sans-serif;font-size:1.5rem;font-weight:700;color:var(--accent-ink)}
+  .score span{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+
+  /* ---------- orbiting rings panel ---------- */
+  .player{
+    position:relative;aspect-ratio:1/1;width:100%;max-width:360px;justify-self:center;
+    border-radius:26px;border:2px solid var(--hard);box-shadow:8px 8px 0 var(--hard);
+    background:
+      radial-gradient(circle at 30% 22%,rgba(255,255,255,.45),transparent 55%),
+      linear-gradient(150deg,var(--teal),var(--coral) 55%,var(--amber));
+    overflow:hidden;container-type:size;
+  }
+  .ring{position:absolute;top:50%;left:50%;border-radius:50%;border:2px dashed rgba(255,255,255,.5);transform:translate(-50%,-50%);will-change:transform}
+  .ring--a{width:74cqmin;height:74cqmin;animation:spin 30s linear infinite}
+  .ring--b{width:50cqmin;height:50cqmin;border-style:dotted;animation:spin 22s linear infinite reverse}
+
+  .orbit{position:absolute;top:50%;left:50%;width:0;height:0;animation:spin 36s linear infinite;will-change:transform}
+  .node{position:absolute;top:0;left:0;transform:rotate(calc(var(--i) * 45deg)) translateX(37cqmin)}
+  .spinfix{animation:spin 36s linear infinite reverse;will-change:transform}
+  .fix{transform:rotate(calc(var(--i) * -45deg))}
+  .pip{
+    position:absolute;transform:translate(-50%,-50%);white-space:nowrap;
+    font-family:"Fredoka",sans-serif;font-weight:600;font-size:3.1cqmin;
+    padding:1.2cqmin 2.2cqmin;border-radius:999px;
+    background:rgba(255,255,255,.95);color:#14262b;border:2px solid var(--hard);box-shadow:2px 2px 0 var(--hard);
+  }
+  .pip.proj{background:var(--hard);color:#fff}
+
+  .core{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:34cqmin;height:16cqmin}
+  .core__item{
+    position:absolute;inset:0;display:grid;place-items:center;text-align:center;line-height:1.1;
+    opacity:0;transform:scale(.9);transition:opacity .5s,transform .5s;
+    font-family:"Fredoka",sans-serif;font-weight:700;font-size:4.4cqmin;color:#fff;text-shadow:0 2px 0 rgba(0,0,0,.18)
+  }
+  .core__item.is-on{opacity:1;transform:none}
+
+  /* marquee ticker */
+  .ticker{margin-top:46px;border-top:2px solid var(--line);border-bottom:2px solid var(--line);padding:12px 0;overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+  .ticker__row{display:flex;gap:34px;white-space:nowrap;width:max-content;animation:slide 26s linear infinite}
+  .ticker:hover .ticker__row{animation-play-state:paused}
+  .ticker__row span{font-family:"Fredoka",sans-serif;font-weight:600;color:var(--muted);font-size:15px}
+  .ticker__row span::before{content:"·";color:var(--accent);margin-right:34px;font-weight:700}
+  @keyframes slide{to{transform:translateX(-50%)}}
+  @keyframes spin{from{transform:translate(-50%,-50%) rotate(0)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+  .orbit{animation-name:spin-o}
+  .spinfix{animation-name:spin-o}
+  @keyframes spin-o{to{transform:rotate(360deg)}}
+
+  /* ============================================================ SECTIONS */
+  section{padding:64px 0;position:relative}
+  .sec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:30px;flex-wrap:wrap}
+  .sec-head .idx{font-family:"JetBrains Mono",monospace;font-size:13px;font-weight:600;color:var(--accent)}
+  .sec-head .idx::before{content:"// "}
+  .sec-head h2{font-size:clamp(1.7rem,4.5vw,2.5rem);font-weight:700}
+
+  /* ABOUT */
+  .about{display:grid;grid-template-columns:1.3fr .9fr;gap:26px}
+  @media (max-width:820px){.about{grid-template-columns:1fr}}
+  .about p + p{margin-top:14px}
+  .about .card{padding:22px}
+  .facts{display:flex;flex-direction:column;gap:10px;margin:0}
+  .facts > div{padding:12px 14px;border-radius:12px;background:var(--surface-2);border:2px solid var(--line);border-left:4px solid var(--accent)}
+  .facts dt{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+  .facts dd{margin:3px 0 0;font-size:13.5px;font-family:"Fredoka",sans-serif;font-weight:500;color:var(--ink)}
+
+  /* EXPERIENCE */
+  .quest{position:relative;padding-left:34px}
+  .quest::before{content:"";position:absolute;left:9px;top:8px;bottom:8px;width:3px;background:repeating-linear-gradient(var(--accent) 0 8px,transparent 8px 16px)}
+  .qitem{position:relative;margin-bottom:20px}
+  .qitem::before{content:"";position:absolute;left:-33px;top:22px;width:16px;height:16px;border-radius:5px;background:var(--surface);border:3px solid var(--accent);transform:rotate(45deg)}
+  .qitem .card{padding:20px 22px}
+  .qtop{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:baseline}
+  .qtop h3{font-size:1.15rem;font-weight:600}
+  .qorg{font-weight:600;color:var(--accent-ink);font-size:.96rem}
+  .qdate{font-family:"JetBrains Mono",monospace;font-size:11.5px;font-weight:600;background:var(--line);color:var(--accent-ink);padding:4px 9px;border-radius:999px;white-space:nowrap}
+  .qitem ul{margin:12px 0 0;padding-left:18px;color:var(--muted);font-size:.95rem}
+  .qitem li{margin:7px 0}
+  .qitem li::marker{color:var(--accent)}
+  .earlier{display:flex;gap:10px;flex-wrap:wrap}
+  .earlier .chip{background:var(--surface-2)}
+
+  /* PROJECTS */
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  @media (max-width:760px){.grid{grid-template-columns:1fr}}
+  .proj{padding:22px;display:flex;flex-direction:column;gap:12px;transition:transform .18s,box-shadow .18s}
+  .proj:hover{transform:translate(-3px,-3px) rotate(-.4deg);box-shadow:10px 10px 0 var(--hard)}
+  .proj__top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+  .proj__top h3{font-size:1.2rem;font-weight:600}
+  .badge{font-family:"JetBrains Mono",monospace;font-size:10.5px;font-weight:700;letter-spacing:.03em;padding:4px 8px;border-radius:8px;border:2px solid var(--hard);white-space:nowrap}
+  .badge.ai{background:var(--teal);color:#063f36}
+  .badge.data{background:var(--amber);color:#4a3607}
+  .badge.prod{background:var(--sage);color:#0d4e3a}
+  .badge.fin{background:var(--coral);color:#5a2416}
+  .proj p{color:var(--muted);font-size:.94rem;flex:1}
+  .tags{display:flex;flex-wrap:wrap;gap:6px}
+  .chip{font-size:11.5px;font-weight:600;padding:4px 9px;border-radius:999px;background:var(--line);color:var(--accent-ink)}
+  .proj__foot{display:flex;gap:14px;font-size:13px;font-weight:700;font-family:"Fredoka",sans-serif}
+  .proj__foot a{color:var(--accent-ink);text-decoration:none}
+  .proj__foot a:hover{text-decoration:underline}
+
+  /* SKILLS */
+  .skills{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+  @media (max-width:820px){.skills{grid-template-columns:1fr}}
+  .stats .card,.kit .card{padding:22px}
+  .stat{margin:16px 0}
+  .stat:first-child{margin-top:0}
+  .stat__label{display:flex;justify-content:space-between;font-size:13px;font-weight:600;margin-bottom:6px}
+  .stat__label span:last-child{font-family:"JetBrains Mono",monospace;color:var(--accent)}
+  .bar{height:14px;background:var(--line);border-radius:999px;border:2px solid var(--hard);overflow:hidden}
+  .bar__fill{height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,var(--amber),var(--teal) 50%,var(--coral));transition:width 1.1s cubic-bezier(.2,.7,.2,1)}
+  .stats.is-in .bar__fill{width:var(--val)}
+  .kit h4{font-size:.85rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:18px 0 10px}
+  .kit h4:first-of-type{margin-top:0}
+  .kit .tags .chip{background:var(--surface-2);border:2px solid var(--line);font-size:12px;padding:6px 11px}
+
+  /* EDUCATION */
+  .edu{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  @media (max-width:820px){.edu{grid-template-columns:1fr}}
+  .edu .card{padding:22px}
+  .edu h3{font-size:1.1rem;font-weight:600}
+  .edu .deg{color:var(--accent-ink);font-weight:600;margin-top:2px}
+  .edu .meta{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted);margin-top:8px}
+  .edu .cw{font-size:.9rem;color:var(--muted);margin-top:10px}
+  .achv{grid-column:1/-1;display:flex;align-items:center;gap:16px;padding:18px 22px;background:linear-gradient(120deg,var(--sun),var(--coral));color:#3a2a12}
+  .achv__badge{flex:0 0 auto;width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:#3a2a12;color:#fff;font-family:"Fredoka",sans-serif;font-weight:700;font-size:15px;transform:rotate(-6deg);border:2px solid #3a2a12}
+  .achv b{font-family:"Fredoka",sans-serif;font-size:1.05rem;display:block}
+  .achv span{font-size:13px;font-weight:600}
+
+  /* CONTACT */
+  .contact .card{padding:40px 30px;text-align:center;background:radial-gradient(circle at 20% 10%,rgba(255,255,255,.35),transparent 50%),linear-gradient(140deg,var(--teal),var(--amber))}
+  .contact h2{font-size:clamp(1.8rem,5vw,2.6rem);font-weight:700;color:#0f2a27}
+  .contact p{color:#23433f;font-weight:500;max-width:44ch;margin:12px auto 0}
+  .contact .cta-row{justify-content:center;margin-top:24px}
+  .contact .btn{background:#0b5f52;color:#fff;border-color:var(--hard);box-shadow:5px 5px 0 var(--hard)}
+  .contact .btn:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--hard)}
+
+  footer{padding:40px 0 60px;text-align:center;color:var(--muted);font-size:13px}
+  footer .mono{color:var(--accent);margin:0 6px}
+
+  /* konami */
+  .confetti{position:fixed;top:-20px;font-size:20px;z-index:200;pointer-events:none;animation:drop linear forwards}
+  @keyframes drop{to{transform:translateY(110vh) rotate(540deg);opacity:.9}}
+  .toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(140%);background:var(--ink);color:var(--bg);padding:12px 20px;border-radius:14px;font-weight:600;font-size:14px;z-index:210;transition:transform .4s cubic-bezier(.2,.8,.2,1);border:2px solid var(--accent)}
+  .toast.show{transform:translateX(-50%) translateY(0)}
+
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+    html{scroll-behavior:auto}
+    .ticker__row,.ring,.orbit,.spinfix{animation:none!important}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Primary">
+  <div class="nav__inner">
+    <a href="#top" class="brand"><span class="dot">SS</span>Shahram&nbsp;Sajawal</a>
+    <div class="nav__links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav__btns">
+      <button class="iconbtn nav__toggle" id="navToggle" aria-label="Menu" aria-expanded="false">≡</button>
+      <button class="iconbtn" id="themeToggle" aria-label="Toggle dark mode">&#9790;</button>
+    </div>
+  </div>
+</nav>
+
+<a id="top"></a>
+
+<header class="hero">
+  <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>
+  <div class="wrap hero__grid">
+    <div>
+      <span class="pill"><span class="pulse"></span> Open to work &nbsp;·&nbsp; Dublin, Ireland</span>
+      <h1>Hi, I'm <span class="hl">Shahram</span>.</h1>
+      <p class="hero__role">I run month-end close, AP/AR and reconciliations, and turn the same data into BI dashboards and evaluation datasets for AI models.</p>
+      <p class="hero__sub">M.Sc. Business Analytics at Dublin Business School, First Class Honours (1.1) · Part-qualified ACCA.</p>
+      <p class="hero__sub"><b>3+ years across four roles</b>, spanning payroll and statutory reporting, accounts and reconciliation, financial statements, and LLM output evaluation.</p>
+      <div class="cta-row">
+        <a class="btn btn--primary" href="#projects">See projects</a>
+        <a class="btn btn--ghost" href="#contact">Get in touch</a>
+        <!-- Put your PDF in the repo as resume.pdf. Opens in a new tab so the site stays open behind it. -->
+        <a class="btn btn--ghost" href="resume.pdf" target="_blank" rel="noopener">Résumé</a>
+      </div>
+      <div class="scores">
+        <div class="score"><b>1.1</b><span>Honours</span></div>
+        <div class="score"><b data-count="4">0</b><span>Roles</span></div>
+        <div class="score"><b data-count="15">0</b><span>Certifications</span></div>
+        <div class="score"><b>2026</b><span>Grad</span></div>
+      </div>
+    </div>
+
+    <!-- Orbiting ring: tools (light) + projects (dark), centre cycles focus areas -->
+    <div class="player" aria-hidden="true">
+      <div class="ring ring--a"></div>
+      <div class="ring ring--b"></div>
+
+      <div class="orbit">
+        <div class="node" style="--i:0"><div class="spinfix"><div class="fix"><span class="pip">Excel</span></div></div></div>
+        <div class="node" style="--i:1"><div class="spinfix"><div class="fix"><span class="pip proj">Car Price Model</span></div></div></div>
+        <div class="node" style="--i:2"><div class="spinfix"><div class="fix"><span class="pip">Power BI</span></div></div></div>
+        <div class="node" style="--i:3"><div class="spinfix"><div class="fix"><span class="pip proj">Payroll Engine</span></div></div></div>
+        <div class="node" style="--i:4"><div class="spinfix"><div class="fix"><span class="pip">SQL</span></div></div></div>
+        <div class="node" style="--i:5"><div class="spinfix"><div class="fix"><span class="pip proj">Lilly Analysis</span></div></div></div>
+        <div class="node" style="--i:6"><div class="spinfix"><div class="fix"><span class="pip">Python</span></div></div></div>
+        <div class="node" style="--i:7"><div class="spinfix"><div class="fix"><span class="pip proj">PredictPay</span></div></div></div>
+      </div>
+
+      <div class="core">
+        <span class="core__item is-on">Financial Reporting</span>
+        <span class="core__item">Analytics &amp; BI</span>
+        <span class="core__item">AI Evaluation</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker__row">
+      <span>Excel</span><span>Power BI</span><span>Tableau</span><span>Python</span><span>SQL</span>
+      <span>Xero</span><span>QuickBooks</span><span>SAP Financials</span><span>RapidMiner</span>
+      <span>scikit-learn</span><span>statsmodels</span><span>LLM Evaluation</span><span>ACCA</span>
+      <span>Excel</span><span>Power BI</span><span>Tableau</span><span>Python</span><span>SQL</span>
+      <span>Xero</span><span>QuickBooks</span><span>SAP Financials</span><span>RapidMiner</span>
+      <span>scikit-learn</span><span>statsmodels</span><span>LLM Evaluation</span><span>ACCA</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section id="about" class="reveal">
+    <div class="sec-head"><span class="idx">01</span><h2>About me</h2></div>
+    <div class="about">
+      <div>
+        <p>
+          I'm a business analytics graduate with a finance background, so I'm comfortable
+          on both sides of the numbers: closing the books, running payroll, and reconciling
+          accounts, then turning that same data into models and dashboards that explain
+          what's actually happening in the business.
+        </p>
+        <p>
+          Recently I've been working on the data side of AI: evaluating and ranking large
+          language model outputs against detailed rubrics, writing expert-level finance and
+          accounting prompt–response pairs for fine-tuning, and documenting reasoning traces
+          and error analysis for RLHF workflows. Careful, well-labelled data is the part most
+          people skip, and it&#8217;s the part I enjoy. I use AI tools the same way I&#8217;d brief an analyst: with a reference example, the source documents attached, and a request to show the evaluation step by step rather than just the answer, then I iterate on what comes back.
+        </p>
+        <p>
+          I hold a First Class Honours M.Sc. in Business Analytics from Dublin Business School
+          and a B.Sc. in Accounting &amp; Finance from NUST. I'm based in Dublin and open to
+          analytics, finance, and data roles across Ireland and remote.
+        </p>
+      </div>
+      <div class="card">
+        <dl class="facts">
+          <div><dt>School</dt><dd>Dublin Business School — M.Sc. Business Analytics, First Class Honours (1.1)</dd></div>
+          <div><dt>Focus</dt><dd>Financial reporting, analytics &amp; BI, AI model evaluation</dd></div>
+          <div><dt>Qualifications</dt><dd>Part-qualified ACCA · CFI Corporate Finance Foundations · SAP Financials · Excel for FP&amp;A</dd></div>
+          <div><dt>Location</dt><dd>Dublin, Ireland · open to remote and hybrid roles</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="reveal">
+    <div class="sec-head"><span class="idx">02</span><h2>Experience</h2></div>
+    <div class="quest">
+
+      <div class="qitem"><div class="card">
+        <div class="qtop">
+          <div><h3>AI Training Data Specialist</h3><div class="qorg">Mercor</div></div>
+          <span class="qdate">Jun 2026 — Present</span>
+        </div>
+        <ul>
+          <li>Review and rank large language model outputs against detailed rubrics for factual accuracy, instruction-following, and reasoning quality across high-volume task batches.</li>
+          <li>Author and label expert-level prompt–response pairs in finance, accounting, and business analytics, producing supervised training data for domain-specific model fine-tuning.</li>
+          <li>Apply evolving annotation taxonomies and style guidelines, flagging ambiguous edge cases and maintaining a consistently high acceptance rate on submitted work.</li>
+          <li>Document step-by-step reasoning and diagnose logical, factual, and formatting errors in model outputs to support RLHF and evaluation workflows.</li>
+        </ul>
+      </div></div>
+
+      <div class="qitem"><div class="card">
+        <div class="qtop">
+          <div><h3>Finance Associate</h3><div class="qorg">NaqCoDE Technologies Pvt Ltd</div></div>
+          <span class="qdate">Oct 2024 — Aug 2025</span>
+        </div>
+        <ul>
+          <li>Processed end-to-end payroll for all employees, ensuring accuracy in salary disbursements, tax deductions, and statutory returns, with working knowledge of the Irish tax system (ROS, VAT, PAYE, and RCT).</li>
+          <li>Prepared monthly, quarterly, and annual financial statements, including balance sheets, income statements, and cash flow statements, to support strategic decision-making.</li>
+          <li>Managed company-wide operational and administrative expenses, implementing cost-saving initiatives that reduced monthly expenditure by 15%.</li>
+          <li>Prepared accounts information for external accountants and auditors, resolving discrepancies with supporting documentation.</li>
+          <li>Streamlined financial workflows using advanced Excel models, Xero, and QuickBooks, improving reporting efficiency by 20%.</li>
+        </ul>
+      </div></div>
+
+      <div class="qitem"><div class="card">
+        <div class="qtop">
+          <div><h3>Accounts Assistant</h3><div class="qorg">Nawaz Construction Limited</div></div>
+          <span class="qdate">Oct 2022 — Sep 2024</span>
+        </div>
+        <ul>
+          <li>Processed and tracked over 10,000 customer and supplier invoices monthly at a 99% accuracy rate, and followed up outstanding accounts to keep cash flow on schedule.</li>
+          <li>Managed accounts payable and receivable end to end, and coordinated with suppliers, subcontractors, and procurement teams across 10+ construction projects to cut discrepancies.</li>
+          <li>Maintained detailed accounting and inventory records for NHA-outsourced projects, keeping procurement compliant and transparent.</li>
+          <li>Maintained bookkeeping and banking records and performed bank reconciliations across all accounts in Xero and QuickBooks, identifying and resolving discrepancies promptly.</li>
+        </ul>
+      </div></div>
+
+      <div class="qitem"><div class="card">
+        <div class="qtop">
+          <div><h3>Recruitment Specialist</h3><div class="qorg">TalentMatch Pro (contract, remote)</div></div>
+          <span class="qdate">Aug 2024 — Oct 2024</span>
+        </div>
+        <ul>
+          <li>Sourced and engaged US-based candidates for the RippleMatch project through LinkedIn and other platforms, and ran a smooth application process alongside the recruitment team.</li>
+        </ul>
+      </div></div>
+
+      <div class="qitem"><div class="card">
+        <div class="qtop">
+          <div><h3>Finance Intern</h3><div class="qorg">Atlas Honda Limited</div></div>
+          <span class="qdate">Jul 2021 — Aug 2021</span>
+        </div>
+        <ul>
+          <li>Recovered value from written-off stock by optimising inventory allocation, and improved daily reporting accuracy by 5% by streamlining routine financial tasks.</li>
+          <li>Worked through complex supplier and retailer tax issues, particularly with non-recognised government taxpayers, ensuring compliance and minimising financial risk.</li>
+        </ul>
+      </div></div>
+
+      <div class="qitem"><div class="card" style="padding:16px 20px">
+        <div class="qtop"><h3 style="font-size:1rem">Earlier &amp; extracurricular</h3></div>
+        <div class="earlier">
+          <span class="chip">Director of Admin Events, TABA Youth NUST Chapter — organised outreach visits to orphanages, care homes, and mental-health institutions</span>
+          <span class="chip">Data-Driven Business Transformation: A Journey into Applied Data Science — Tableau dashboards &amp; RapidMiner predictive modelling</span>
+          <span class="chip">FinTech Frontier: Harnessing the Power of LLMs — fine-tuning and optimising LLMs for domain tasks</span>
+        </div>
+      </div></div>
+
+    </div>
+  </section>
+
+  <!-- Projects: each card links to a "Code" or "Report" URL. Replace the href with your GitHub repo / report link. -->
+  <section id="projects" class="reveal">
+    <div class="sec-head"><span class="idx">03</span><h2>Projects</h2></div>
+    <div class="grid">
+
+      <article class="card proj">
+        <div class="proj__top"><h3>Used Car Price Prediction</h3><span class="badge data">ML</span></div>
+        <p>End-to-end regression project predicting used-car prices from listing data. Cleaned and encoded the raw dataset, engineered features such as engine horsepower extracted from free-text specs, then compared an OLS linear regression baseline against a Support Vector Regressor tuned with GridSearchCV, evaluating both on R² and RMSE.</p>
+        <div class="tags"><span class="chip">Python</span><span class="chip">pandas</span><span class="chip">statsmodels</span><span class="chip">scikit-learn</span><span class="chip">SVR</span></div>
+        <div class="proj__foot"><a href="https://github.com/Shahram-29" target="_blank" rel="noopener">Code &#8594;</a></div>
+      </article>
+
+      <article class="card proj">
+        <div class="proj__top"><h3>Payroll &amp; Reporting Automation</h3><span class="badge fin">Finance Ops</span></div>
+        <p>Rebuilt a company's monthly close around formula-driven Excel models and accounting-software integrations (Xero, QuickBooks): automated payroll calculations with PAYE, VAT, and RCT handling, and standardised the balance sheet, P&amp;L, and cash flow templates. Cut recurring reporting time by 20% and supported a 15% reduction in monthly expenditure.</p>
+        <div class="tags"><span class="chip">Excel</span><span class="chip">Xero</span><span class="chip">QuickBooks</span><span class="chip">Irish payroll (ROS)</span></div>
+        <div class="proj__foot"><a href="#contact">Ask me about it &#8594;</a></div>
+      </article>
+
+      <article class="card proj">
+        <div class="proj__top"><h3>Eli Lilly 5-Year Share Analysis</h3><span class="badge fin">Equity Research</span></div>
+        <p>A five-year equity write-up tracing Eli Lilly from a conventional pharma stock to a GLP-1 growth story: the tirzepatide pipeline, the Mounjaro and Zepbound approvals, supply-constrained earnings misses, political pricing risk, and the gap between record results and share-price reaction in early 2026.</p>
+        <div class="tags"><span class="chip">Equity analysis</span><span class="chip">Corporate finance</span><span class="chip">Pharma / GLP-1</span></div>
+        <div class="proj__foot"><a href="https://github.com/Shahram-29" target="_blank" rel="noopener">Report &#8594;</a></div>
+      </article>
+
+      <article class="card proj">
+        <div class="proj__top"><h3>Power BI Operations Dashboards</h3><span class="badge prod">BI</span></div>
+        <p>Interactive Power BI reports built during the M.Sc.: cleaned and modelled the source data, defined measures, and designed dashboard pages with KPI cards, slicers, and drill-down views so a non-technical reader can answer their own questions without a new report request.</p>
+        <div class="tags"><span class="chip">Power BI</span><span class="chip">Data modelling</span><span class="chip">DAX</span><span class="chip">Tableau</span></div>
+        <div class="proj__foot"><a href="https://github.com/Shahram-29" target="_blank" rel="noopener">Dashboards &#8594;</a></div>
+      </article>
+
+      <article class="card proj">
+        <div class="proj__top"><h3>PredictPay</h3><span class="badge ai">AI / Team</span></div>
+        <p>An LSTM-based decision support system for B2B finance teams, built with Amjad Ali and Abdul Rehman for the Project Management for Business Analytics module. It tracks accounts receivable automatically, forecasts which customers will pay late, and is designed to plug into Xero and Sage so a backlog of 50+ overdue invoices becomes a prioritised worklist instead of a spreadsheet.</p>
+        <div class="tags"><span class="chip">LSTM</span><span class="chip">Accounts receivable</span><span class="chip">Decision support</span><span class="chip">Xero / Sage</span><span class="chip">Project management</span></div>
+        <div class="proj__foot"><a href="https://github.com/Shahram-29" target="_blank" rel="noopener">Slides &#8594;</a></div>
+      </article>
+
+      <article class="card proj">
+        <div class="proj__top"><h3>Research Collaboration &amp; Review</h3><span class="badge fin">Co-author</span></div>
+        <p>Co-authored and reviewed peers' M.Sc. research: a comparative study of Linear Regression vs. ARIMA forecasts as inputs to Markowitz portfolio optimisation on technology stocks and cryptocurrencies, a Real Options Analysis report on valuing managerial flexibility, and Amjad Ali's dissertation. My part ran from idea discussion and structuring the argument to drafting sections and catching methodological and numerical errors before submission.</p>
+        <div class="tags"><span class="chip">ARIMA</span><span class="chip">Markowitz optimisation</span><span class="chip">Real options</span><span class="chip">Academic writing</span><span class="chip">Peer review</span></div>
+        <div class="proj__foot"><a href="#contact">Ask me about it &#8594;</a></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="skills" class="reveal">
+    <div class="sec-head"><span class="idx">04</span><h2>Skills</h2></div>
+    <div class="skills">
+      <div class="stats">
+        <div class="card">
+          <div class="stat"><div class="stat__label"><span>Financial reporting &amp; accounting</span><span>90</span></div><div class="bar"><div class="bar__fill" style="--val:90%"></div></div></div>
+          <div class="stat"><div class="stat__label"><span>Excel modelling &amp; automation</span><span>88</span></div><div class="bar"><div class="bar__fill" style="--val:88%"></div></div></div>
+          <div class="stat"><div class="stat__label"><span>Analytics, BI &amp; dashboards</span><span>82</span></div><div class="bar"><div class="bar__fill" style="--val:82%"></div></div></div>
+          <div class="stat"><div class="stat__label"><span>AI evaluation &amp; data annotation</span><span>80</span></div><div class="bar"><div class="bar__fill" style="--val:80%"></div></div></div>
+          <div class="stat"><div class="stat__label"><span>Statistics &amp; machine learning</span><span>74</span></div><div class="bar"><div class="bar__fill" style="--val:74%"></div></div></div>
+        </div>
+      </div>
+      <div class="kit">
+        <div class="card">
+          <h4>Finance &amp; accounting</h4>
+          <div class="tags"><span class="chip">Financial statements</span><span class="chip">Payroll (PAYE / ROS / RCT)</span><span class="chip">VAT returns</span><span class="chip">Bank reconciliation</span><span class="chip">AP / AR</span><span class="chip">Xero</span><span class="chip">QuickBooks Online</span><span class="chip">SAP Financials</span></div>
+          <h4>Analytics &amp; data</h4>
+          <div class="tags"><span class="chip">Excel (advanced)</span><span class="chip">Power BI</span><span class="chip">Tableau</span><span class="chip">SQL</span><span class="chip">Python</span><span class="chip">pandas</span><span class="chip">statsmodels</span><span class="chip">scikit-learn</span><span class="chip">RapidMiner</span></div>
+          <h4>AI / LLM</h4>
+          <div class="tags"><span class="chip">Model output evaluation</span><span class="chip">Rubric-based ranking</span><span class="chip">Expert annotation</span><span class="chip">RLHF data</span><span class="chip">Error analysis</span><span class="chip">Prompt–response authoring</span></div>
+          <h4>Working with AI tools</h4>
+          <div class="tags"><span class="chip">Briefing with reference examples</span><span class="chip">Attaching source context</span><span class="chip">Asking for step-by-step evaluation</span><span class="chip">Iterative refinement</span><span class="chip">Prompt design (Google, LinkedIn certified)</span><span class="chip">Prompt-injection awareness</span><span class="chip">Claude Code</span></div>
+          <h4>Finance certifications</h4>
+          <div class="tags"><span class="chip">ACCA (part-qualified)</span><span class="chip">CFI Corporate Finance Foundations (2024)</span><span class="chip">QuickBooks Online Essential Training (2024)</span><span class="chip">SAP Financials Essential Training (2023)</span><span class="chip">Excel for Business Analysts (2023)</span><span class="chip">Excel for FP&amp;A (2023)</span></div>
+          <h4>AI &amp; analytics certifications</h4>
+          <div class="tags"><span class="chip">Business Value Creation — Duke University (2025)</span><span class="chip">Use AI as a Creative or Expert Partner — Google (2025)</span><span class="chip">Design Prompts for Everyday Work Tasks — Google (2025)</span><span class="chip">Start Writing Prompts like a Pro — Google (2025)</span><span class="chip">Speed Up Data Analysis &amp; Presentation Building — Google (2025)</span><span class="chip">Prompt Engineering: How to Talk to the AIs — LinkedIn (2025)</span><span class="chip">Mitigating Prompt Injection &amp; Prompt Hacking — LinkedIn (2025)</span><span class="chip">Time Series Analysis &amp; Forecasting with GPT-4o — LinkedIn (2025)</span><span class="chip">Business Analytics Foundations — LinkedIn (2025)</span><span class="chip">Tips to Ask Questions that Enhance Communication — LinkedIn (2025)</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education" class="reveal">
+    <div class="sec-head"><span class="idx">05</span><h2>Education &amp; achievements</h2></div>
+    <div class="edu">
+      <div class="card">
+        <h3>Dublin Business School</h3>
+        <div class="deg">M.Sc. Business Analytics</div>
+        <div class="meta">2025 — 2026 · First Class Honours (1.1)</div>
+        <div class="cw">Focus: data analysis, business intelligence, predictive modelling, and data visualization. Coursework includes Applied Statistics &amp; Machine Learning, Data Visualization, Project Management for Business Analytics, and Requirements Analysis &amp; Design.</div>
+      </div>
+      <div class="card">
+        <h3>National University of Sciences and Technology (NUST)</h3>
+        <div class="deg">B.Sc. Accounting &amp; Finance</div>
+        <div class="meta">2018 — 2022 · CGPA 3.00 / 4.00</div>
+        <div class="cw">Coursework: Intermediate Financial Accounting, Management Accounting, Enterprise Management, Financial Modelling, Econometrics. Director of Admin Events, TABA Youth NUST Chapter.</div>
+      </div>
+      <div class="card achv">
+        <div class="achv__badge">CFI</div>
+        <div><b>Corporate Finance Foundations Professional Certificate</b><span>Valuation, capital structure &amp; financial strategy · Corporate Finance Institute, 2024</span></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<section id="contact" class="wrap contact reveal">
+  <div class="card">
+    <h2>Let's build something</h2>
+    <p>I'm based in Dublin and open to analytics, finance, and AI data roles. The fastest way to reach me is email.</p>
+    <div class="cta-row">
+      <a class="btn" href="mailto:shahramsajawal@gmail.com">shahramsajawal@gmail.com</a>
+      <a class="btn" href="tel:+353858402075">+353 85 840 2075</a>
+      
+      <a class="btn" href="https://www.linkedin.com/in/shahram-sajawal/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://github.com/Shahram-29" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Shahram Sajawal <span class="mono">·</span> Business Analytics &amp; Finance <span class="mono">·</span> 2026</p>
+</footer>
+
+<script>
+  document.documentElement.classList.add('js');
+
+  /* theme */
+  (function(){
+    var root = document.documentElement, btn = document.getElementById('themeToggle'), saved = null;
+    try { saved = localStorage.getItem('theme'); } catch(e){}
+    if (saved) root.setAttribute('data-theme', saved);
+    function sync(){
+      var dark = root.getAttribute('data-theme') === 'dark' ||
+        (!root.getAttribute('data-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      btn.innerHTML = dark ? '&#9728;' : '&#9790;';
+    }
+    sync();
+    btn.addEventListener('click', function(){
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch(e){}
+      sync();
+    });
+  })();
+
+  /* mobile nav */
+  (function(){
+    var t = document.getElementById('navToggle'), links = document.getElementById('navLinks');
+    t.addEventListener('click', function(){
+      var open = links.classList.toggle('open');
+      t.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    links.addEventListener('click', function(e){
+      if (e.target.tagName === 'A') { links.classList.remove('open'); t.setAttribute('aria-expanded','false'); }
+    });
+  })();
+
+  /* reveal + skill bars */
+  (function(){
+    if (!('IntersectionObserver' in window)) {
+      document.querySelectorAll('.reveal, .stats').forEach(function(el){ el.classList.add('is-in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if (en.isIntersecting){ en.target.classList.add('is-in'); io.unobserve(en.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal, .stats').forEach(function(el){ io.observe(el); });
+  })();
+
+  /* active nav link */
+  (function(){
+    var map = {};
+    document.querySelectorAll('#navLinks a').forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting){
+          Object.keys(map).forEach(function(k){ map[k].classList.remove('active'); });
+          if (map[en.target.id]) map[en.target.id].classList.add('active');
+        }
+      });
+    }, { rootMargin: '-40% 0px -50% 0px' });
+    Object.keys(map).forEach(function(id){ var s = document.getElementById(id); if (s) io.observe(s); });
+  })();
+
+  /* counters */
+  (function(){
+    var els = document.querySelectorAll('[data-count]');
+    if (!els.length) return;
+    function run(el){
+      var target = parseFloat(el.getAttribute('data-count')), dec = parseInt(el.getAttribute('data-dec') || '0', 10);
+      var start = null, dur = 1100;
+      function step(ts){
+        if (!start) start = ts;
+        var p = Math.min((ts - start) / dur, 1), eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = (target * eased).toFixed(dec);
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+    if (!('IntersectionObserver' in window)) { els.forEach(run); return; }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if (en.isIntersecting){ run(en.target); io.unobserve(en.target); } });
+    }, { threshold: 0.5 });
+    els.forEach(function(el){ io.observe(el); });
+  })();
+
+  /* hero core: cycle focus areas */
+  (function(){
+    var items = document.querySelectorAll('.core__item');
+    if (items.length < 2) return;
+    var i = 0;
+    setInterval(function(){
+      items[i].classList.remove('is-on');
+      i = (i + 1) % items.length;
+      items[i].classList.add('is-on');
+    }, 2600);
+  })();
+
+  /* konami easter egg */
+  (function(){
+    var seq = [38,38,40,40,37,39,37,39,66,65], pos = 0;
+    document.addEventListener('keydown', function(e){
+      pos = (e.keyCode === seq[pos]) ? pos + 1 : 0;
+      if (pos === seq.length){ pos = 0; party(); }
+    });
+    function party(){
+      var emo = ['📊','💶','📈','🧾','✨','🎉'];
+      for (var k = 0; k < 60; k++){
+        var s = document.createElement('span');
+        s.className = 'confetti';
+        s.textContent = emo[Math.floor(Math.random()*emo.length)];
+        s.style.left = Math.random()*100 + 'vw';
+        s.style.animationDuration = (2 + Math.random()*2) + 's';
+        s.style.animationDelay = (Math.random()*.8) + 's';
+        document.body.appendChild(s);
+        setTimeout(function(el){ return function(){ el.remove(); }; }(s), 5000);
+      }
+      var t = document.createElement('div');
+      t.className = 'toast'; t.textContent = 'Books balanced. Nice find!';
+      document.body.appendChild(t);
+      requestAnimationFrame(function(){ t.classList.add('show'); });
+      setTimeout(function(){ t.classList.remove('show'); setTimeout(function(){ t.remove(); }, 500); }, 2800);
+    }
+  })();
+</script>
+</body>
+</html>
