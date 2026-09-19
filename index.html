@@ -386,7 +386,7 @@
         <div class="score"><b>1.1</b><span>Honours</span></div>
         <div class="score"><b data-count="5">0</b><span>Roles</span></div>
         <div class="score"><b data-count="15">0</b><span>Certifications</span></div>
-        <div class="score"><b>2026</b><span>Grad</span></div>
+        <div class="score"><b data-count="12">0</b><span>Projects</span></div>
       </div>
     </div>
 
@@ -545,16 +545,65 @@
     <div class="grid">
 
       <article class="card proj">
+        <div class="proj__top"><h3>PredictPay</h3><span class="badge ai">AI / Team</span></div>
+        <p>An LSTM-based decision support system for B2B finance teams, built with Amjad Ali and Abdul Rehman for the Project Management for Business Analytics module. It tracks accounts receivable automatically, forecasts which customers will pay late, and is designed to plug into Xero and Sage so a backlog of 50+ overdue invoices becomes a prioritised worklist instead of a spreadsheet.</p>
+        <div class="tags"><span class="chip">LSTM</span><span class="chip">Accounts receivable</span><span class="chip">Decision support</span><span class="chip">Xero / Sage</span><span class="chip">Project management</span></div>
+        <div class="proj__foot"><a href="https://github.com/Shahram-29" target="_blank" rel="noopener">Slides &#8594;</a></div>
+      </article>
+
+      <article class="card proj">
+        <div class="proj__top"><h3>Ryanair vs easyJet Investment Analysis</h3><span class="badge fin">Finance / Viz</span></div>
+        <p>A Python visualisation suite for a Woods PLC investment case comparing the two airlines' shares. Eight charts from one script: share prices annotated with news events, 50/200-day moving-average crossovers, monthly-return heatmaps, rolling volatility, Bollinger bands, cumulative returns, a correlation and drawdown dashboard, and a FY2024 KPI radar (net margin, ROE, load factor, interest cover, equity ratio, revenue, EPS and dividend growth).</p>
+        <div class="tags"><span class="chip">Python</span><span class="chip">pandas</span><span class="chip">matplotlib</span><span class="chip">Equity analysis</span><span class="chip">Technical indicators</span></div>
+        <div class="proj__foot"><a href="https://github.com/Shahram-29" target="_blank" rel="noopener">Code &#8594;</a></div>
+      </article>
+
+      <article class="card proj">
+        <div class="proj__top"><h3>JPMorgan Chase Predictive Pipeline</h3><span class="badge data">Data / Python</span></div>
+        <p>End-to-end analysis of JPM stock data for the Programming for Analytics module: a reusable load-and-clean function with date normalisation and missing-value handling, Augmented Dickey-Fuller stationarity testing, risk quantification, and a supervised linear-regression forecast evaluated on R&sup2;, with seaborn reporting charts throughout.</p>
+        <div class="tags"><span class="chip">Python</span><span class="chip">pandas</span><span class="chip">statsmodels (ADF)</span><span class="chip">scikit-learn</span><span class="chip">seaborn</span></div>
+        <div class="proj__foot"><a href="https://github.com/Shahram-29" target="_blank" rel="noopener">Notebook &#8594;</a></div>
+      </article>
+
+      <article class="card proj">
+        <div class="proj__top"><h3>Gold ETF Price Regression</h3><span class="badge data">ML</span></div>
+        <p>Applied Statistics &amp; Machine Learning CA2 on a 1,718-row, 23-feature gold-price dataset predicting the ETF's adjusted close. Compared Linear, Ridge and Lasso regression, Support Vector Regression, a Decision Tree and a Random Forest, each tuned with GridSearchCV and scored on hold-out R&sup2; against 5-fold cross-validation, with a final model-comparison chart.</p>
+        <div class="tags"><span class="chip">scikit-learn</span><span class="chip">GridSearchCV</span><span class="chip">Random Forest</span><span class="chip">SVR</span><span class="chip">Cross-validation</span></div>
+        <div class="proj__foot"><a href="https://github.com/Shahram-29" target="_blank" rel="noopener">Code &#8594;</a></div>
+      </article>
+
+      <article class="card proj">
         <div class="proj__top"><h3>Used Car Price Prediction</h3><span class="badge data">ML</span></div>
-        <p>End-to-end regression project predicting used-car prices from listing data. Cleaned and encoded the raw dataset, engineered features such as engine horsepower extracted from free-text specs, then compared an OLS linear regression baseline against a Support Vector Regressor tuned with GridSearchCV, evaluating both on R² and RMSE.</p>
+        <p>Regression project predicting used-car prices from listing data. Cleaned and encoded the raw dataset, engineered features such as engine horsepower extracted from free-text specs, then compared an OLS linear regression baseline against a Support Vector Regressor tuned with GridSearchCV, evaluating both on R&sup2; and RMSE.</p>
         <div class="tags"><span class="chip">Python</span><span class="chip">pandas</span><span class="chip">statsmodels</span><span class="chip">scikit-learn</span><span class="chip">SVR</span></div>
         <div class="proj__foot"><a href="https://github.com/Shahram-29" target="_blank" rel="noopener">Code &#8594;</a></div>
       </article>
 
       <article class="card proj">
-        <div class="proj__top"><h3>Payroll &amp; Reporting Automation</h3><span class="badge fin">Finance Ops</span></div>
-        <p>Rebuilt a company's monthly close around formula-driven Excel models and accounting-software integrations (Xero, QuickBooks): automated payroll calculations with PAYE, VAT, and RCT handling, and standardised the balance sheet, P&amp;L, and cash flow templates. Cut recurring reporting time by 20% and supported a 15% reduction in monthly expenditure.</p>
-        <div class="tags"><span class="chip">Excel</span><span class="chip">Xero</span><span class="chip">QuickBooks</span><span class="chip">Irish payroll (ROS)</span></div>
+        <div class="proj__top"><h3>Bank Term-Deposit Classifier</h3><span class="badge data">ML</span></div>
+        <p>Classification on the bank-marketing dataset to predict which customers subscribe to a term deposit. Mapped binary fields, dummy-encoded job, marital, education and contact channels, rebalanced the classes with SMOTE, then tuned Decision Tree, Random Forest and SVC models with GridSearchCV and compared them on accuracy and confusion matrices.</p>
+        <div class="tags"><span class="chip">scikit-learn</span><span class="chip">SMOTE</span><span class="chip">Random Forest</span><span class="chip">SVC</span><span class="chip">Feature encoding</span></div>
+        <div class="proj__foot"><a href="https://github.com/Shahram-29" target="_blank" rel="noopener">Notebook &#8594;</a></div>
+      </article>
+
+      <article class="card proj">
+        <div class="proj__top"><h3>Car Sales SQL Analytics</h3><span class="badge data">SQL</span></div>
+        <p>Database-management assignment over a regional car-sales schema. Queries find the top sale per region with a derived-table join, use a CTE to surface categories priced above the overall average, tier sales into high- and standard-value buckets with CASE, and expose under-served regions with a LEFT JOIN and count, with a recorded walkthrough explaining each query.</p>
+        <div class="tags"><span class="chip">SQL</span><span class="chip">CTEs</span><span class="chip">Joins &amp; subqueries</span><span class="chip">Aggregation</span></div>
+        <div class="proj__foot"><a href="https://github.com/Shahram-29" target="_blank" rel="noopener">Queries &#8594;</a></div>
+      </article>
+
+      <article class="card proj">
+        <div class="proj__top"><h3>Payroll &amp; Month-End Automation</h3><span class="badge fin">Finance Ops</span></div>
+        <p>Ran NaqCoDE's monthly payroll and close for a year on formula-driven Excel: attendance-based salary computation, bank FT/IBFT transfer files, reimbursement tracking, a director's-loan ledger, and reconciliation against the 12-month bank statement, alongside PAYE, VAT and RCT handling and the tax-year 2025 payroll file. Standardised the balance sheet, P&amp;L and cash-flow templates, cutting recurring reporting time by 20%.</p>
+        <div class="tags"><span class="chip">Excel</span><span class="chip">Payroll</span><span class="chip">Bank reconciliation</span><span class="chip">Xero</span><span class="chip">QuickBooks</span></div>
+        <div class="proj__foot"><a href="#contact">Ask me about it &#8594;</a></div>
+      </article>
+
+      <article class="card proj">
+        <div class="proj__top"><h3>4-Year Financial Ratio Analysis</h3><span class="badge fin">Finance</span></div>
+        <p>A ratio-analysis workbook comparing a company's accounts across 2017, 2018, 2023 and 2024: liquidity and solvency (current and quick ratios), profitability (gross and net margin), efficiency (inventory, receivable and payable days), and investment ratios (gearing, interest cover), with input cells separated from calculations so the model can be re-used on any set of statements.</p>
+        <div class="tags"><span class="chip">Excel</span><span class="chip">Ratio analysis</span><span class="chip">Financial statements</span><span class="chip">Managing Financial Analysis</span></div>
         <div class="proj__foot"><a href="#contact">Ask me about it &#8594;</a></div>
       </article>
 
@@ -566,26 +615,21 @@
       </article>
 
       <article class="card proj">
+        <div class="proj__top"><h3>Research Collaboration &amp; Review</h3><span class="badge fin">Co-author</span></div>
+        <p>Co-authored and reviewed peers' M.Sc. research: a comparative study of Linear Regression vs. ARIMA forecasts as inputs to Markowitz portfolio optimisation on technology stocks and cryptocurrencies, a Real Options Analysis report on valuing managerial flexibility, and Amjad Ali's dissertation. My part ran from idea discussion and structuring the argument to drafting sections and catching methodological and numerical errors before submission.</p>
+        <div class="tags"><span class="chip">ARIMA</span><span class="chip">Markowitz optimisation</span><span class="chip">Real options</span><span class="chip">Academic writing</span><span class="chip">Peer review</span></div>
+        <div class="proj__foot"><a href="#contact">Ask me about it &#8594;</a></div>
+      </article>
+
+      <article class="card proj">
         <div class="proj__top"><h3>Power BI Operations Dashboards</h3><span class="badge prod">BI</span></div>
         <p>Interactive Power BI reports built during the M.Sc.: cleaned and modelled the source data, defined measures, and designed dashboard pages with KPI cards, slicers, and drill-down views so a non-technical reader can answer their own questions without a new report request.</p>
         <div class="tags"><span class="chip">Power BI</span><span class="chip">Data modelling</span><span class="chip">DAX</span><span class="chip">Tableau</span></div>
         <div class="proj__foot"><a href="https://github.com/Shahram-29" target="_blank" rel="noopener">Dashboards &#8594;</a></div>
       </article>
 
-      <article class="card proj">
-        <div class="proj__top"><h3>PredictPay</h3><span class="badge ai">AI / Team</span></div>
-        <p>An LSTM-based decision support system for B2B finance teams, built with Amjad Ali and Abdul Rehman for the Project Management for Business Analytics module. It tracks accounts receivable automatically, forecasts which customers will pay late, and is designed to plug into Xero and Sage so a backlog of 50+ overdue invoices becomes a prioritised worklist instead of a spreadsheet.</p>
-        <div class="tags"><span class="chip">LSTM</span><span class="chip">Accounts receivable</span><span class="chip">Decision support</span><span class="chip">Xero / Sage</span><span class="chip">Project management</span></div>
-        <div class="proj__foot"><a href="https://github.com/Shahram-29" target="_blank" rel="noopener">Slides &#8594;</a></div>
-      </article>
-
-      <article class="card proj">
-        <div class="proj__top"><h3>Research Collaboration &amp; Review</h3><span class="badge fin">Co-author</span></div>
-        <p>Co-authored and reviewed peers' M.Sc. research: a comparative study of Linear Regression vs. ARIMA forecasts as inputs to Markowitz portfolio optimisation on technology stocks and cryptocurrencies, a Real Options Analysis report on valuing managerial flexibility, and Amjad Ali's dissertation. My part ran from idea discussion and structuring the argument to drafting sections and catching methodological and numerical errors before submission.</p>
-        <div class="tags"><span class="chip">ARIMA</span><span class="chip">Markowitz optimisation</span><span class="chip">Real options</span><span class="chip">Academic writing</span><span class="chip">Peer review</span></div>
-        <div class="proj__foot"><a href="#contact">Ask me about it &#8594;</a></div>
-      </article>
     </div>
+
   </section>
 
   <section id="skills" class="reveal">
