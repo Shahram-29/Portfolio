@@ -327,6 +327,45 @@
   .achv b{font-family:"Fredoka",sans-serif;font-size:1.05rem;display:block}
   .achv span{font-size:13px;font-weight:600}
 
+  /* PHILOSOPHY QUOTE (About) */
+  .quote{margin-top:22px;padding:18px 22px;border-radius:16px;background:var(--surface-2);border:2px solid var(--line);border-left:5px solid var(--coral);position:relative}
+  .quote__k{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+  .quote p{font-family:"Fredoka",sans-serif;font-weight:500;font-size:1.05rem;line-height:1.45;color:var(--ink)}
+  .quote p + p{margin-top:8px;font-family:"Inter",sans-serif;font-weight:400;font-size:.92rem;color:var(--muted)}
+
+  /* FINANCE WORK (domain cards) */
+  .domains{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media (max-width:900px){.domains{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:560px){.domains{grid-template-columns:1fr}}
+  .domain{padding:20px;display:flex;flex-direction:column;gap:10px;transition:transform .18s,box-shadow .18s}
+  .domain:hover{transform:translate(-3px,-3px);box-shadow:10px 10px 0 var(--hard)}
+  .domain__ico{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;border:2px solid var(--hard);font-family:"Fredoka",sans-serif;font-weight:700;font-size:13px;color:var(--ink);background:var(--amber);transform:rotate(-4deg)}
+  .domain h3{font-size:1.05rem;font-weight:600}
+  .domain p{color:var(--muted);font-size:.92rem;flex:1}
+  .domain .stat-line{font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:600;color:var(--accent-ink);background:var(--line);padding:4px 9px;border-radius:8px;align-self:flex-start}
+
+  /* CERTIFICATIONS */
+  .certs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media (max-width:900px){.certs{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:560px){.certs{grid-template-columns:1fr}}
+  .cert{padding:16px 18px;display:flex;flex-direction:column;gap:6px;border-radius:16px;box-shadow:4px 4px 0 var(--hard)}
+  .cert__top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+  .cert h3{font-size:.98rem;font-weight:600;line-height:1.3}
+  .cert__issuer{font-size:.86rem;font-weight:600;color:var(--accent-ink)}
+  .cert__meta{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted)}
+  .verified{flex:0 0 auto;font-family:"JetBrains Mono",monospace;font-size:10px;font-weight:700;letter-spacing:.05em;padding:3px 7px;border-radius:7px;border:2px solid var(--hard);background:var(--sage);color:#0d4e3a;white-space:nowrap}
+  .verified.pro{background:var(--amber);color:#4a3607}
+  .cert__group{grid-column:1/-1;font-size:.82rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:700;margin-top:8px}
+  .cert__group:first-child{margin-top:0}
+
+  /* current-role tag on the timeline */
+  .qnow{font-family:"JetBrains Mono",monospace;font-size:10.5px;font-weight:700;letter-spacing:.05em;padding:3px 8px;border-radius:7px;border:2px solid var(--hard);background:var(--sage);color:#0d4e3a;margin-left:8px;vertical-align:middle}
+
+  /* education: course chips */
+  .edu .courses{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px}
+  .edu .courses .chip{font-size:11px;padding:3px 8px;background:var(--surface-2);border:2px solid var(--line)}
+  .edu .hi{font-family:"JetBrains Mono",monospace;font-size:11.5px;color:var(--muted);margin-top:8px}
+
   /* CONTACT */
   .contact .card{padding:40px 30px;text-align:center;background:radial-gradient(circle at 20% 10%,rgba(255,255,255,.35),transparent 50%),linear-gradient(140deg,var(--teal),var(--amber))}
   .contact h2{font-size:clamp(1.8rem,5vw,2.6rem);font-weight:700;color:#0f2a27}
@@ -359,8 +398,10 @@
     <div class="nav__links" id="navLinks">
       <a href="#about">About</a>
       <a href="#experience">Experience</a>
+      <a href="#finance">Finance</a>
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
+      <a href="#certifications">Certs</a>
       <a href="#education">Education</a>
       <a href="#contact">Contact</a>
     </div>
@@ -386,7 +427,7 @@
         <a class="btn btn--primary" href="#projects">See projects</a>
         <a class="btn btn--ghost" href="#contact">Get in touch</a>
         <!-- Put your PDF in the repo as resume.pdf. Opens in a new tab so the site stays open behind it. -->
-        <a class="btn btn--ghost" href="resume.pdf" target="_blank" rel="noopener">Résumé</a>
+        <a class="btn btn--ghost" href="resume.pdf" target="_blank" rel="noopener">&#8681; Download CV</a>
       </div>
       <div class="scores">
         <div class="score"><b>1.1</b><span>Honours</span></div>
@@ -456,12 +497,13 @@
           and a B.Sc. in Accounting &amp; Finance from NUST. I'm based in Dublin and open to
           analytics, finance, and data roles across Ireland and remote.
         </p>
+        <div class="quote"><div class="quote__k">How I think</div><p>&ldquo;A misposted invoice becomes a failed audit; a slow close delays every decision that depends on it.&rdquo;</p><p>Small errors compound, so I build for getting the details right the first time: reconciled before reported, documented before handed off, and tested before trusted, whether it&#8217;s a ledger or a model.</p></div>
       </div>
       <div class="card">
         <dl class="facts">
           <div><dt>School</dt><dd>Dublin Business School — M.Sc. Business Analytics, First Class Honours (1.1)</dd></div>
           <div><dt>Focus</dt><dd>Financial reporting, analytics &amp; BI, AI model evaluation</dd></div>
-          <div><dt>Qualifications</dt><dd>Part-qualified ACCA · CFI Corporate Finance Foundations · SAP Financials · Excel for FP&amp;A</dd></div>
+          <div><dt>Qualifications</dt><dd>Part-qualified ACCA · B.Sc. Accounting &amp; Finance (NUST, 2022) · 15 certifications</dd></div>
           <div><dt>Location</dt><dd>Dublin, Ireland · open to remote and hybrid roles</dd></div>
         </dl>
       </div>
@@ -474,7 +516,7 @@
 
       <div class="qitem"><div class="card">
         <div class="qtop">
-          <div><h3>AI Training Data Specialist</h3><div class="qorg">Mercor</div></div>
+          <div><h3>AI Training Data Specialist <span class="qnow">CURRENT</span></h3><div class="qorg">Mercor</div></div>
           <span class="qdate">Jun 2026 — Present</span>
         </div>
         <ul>
@@ -546,8 +588,63 @@
   </section>
 
   <!-- Projects: each card links to a "Code" or "Report" URL. Replace the href with your GitHub repo / report link. -->
+  <section id="finance" class="reveal">
+    <div class="sec-head"><span class="idx">03</span><h2>Finance work</h2></div>
+    <div class="domains">
+
+      <article class="card domain">
+        <div class="domain__ico">M/E</div>
+        <h3>Month-end close &amp; financial statements</h3>
+        <p>Owned the end-to-end close at NaqCoDE: monthly, quarterly and annual balance sheet, P&amp;L and cash-flow statements, built on standardised Excel templates that replaced ad-hoc workings.</p>
+        <span class="stat-line">reporting time &minus;20%</span>
+        <div class="tags"><span class="chip">Excel models</span><span class="chip">Xero</span><span class="chip">QuickBooks</span><span class="chip">IFRS statements</span></div>
+      </article>
+
+      <article class="card domain">
+        <div class="domain__ico">PAY</div>
+        <h3>Payroll &amp; statutory compliance</h3>
+        <p>Ran end-to-end monthly payroll: attendance-based salary computation, bank FT/IBFT transfer files, reimbursements, tax deductions and statutory returns, with working knowledge of the Irish system (ROS, PAYE, VAT, RCT).</p>
+        <span class="stat-line">12 monthly cycles &middot; TY2025 file</span>
+        <div class="tags"><span class="chip">Payroll</span><span class="chip">PAYE / ROS</span><span class="chip">VAT</span><span class="chip">RCT</span></div>
+      </article>
+
+      <article class="card domain">
+        <div class="domain__ico">AP/AR</div>
+        <h3>Invoicing, AP &amp; AR</h3>
+        <p>Processed and tracked customer and supplier invoices across 10+ construction projects at Nawaz Construction, chased outstanding accounts to keep cash flow on schedule and managed payables end to end.</p>
+        <span class="stat-line">10,000+ invoices / month &middot; 99% accuracy</span>
+        <div class="tags"><span class="chip">Accounts payable</span><span class="chip">Accounts receivable</span><span class="chip">Credit control</span><span class="chip">Vendor coordination</span></div>
+      </article>
+
+      <article class="card domain">
+        <div class="domain__ico">REC</div>
+        <h3>Bank reconciliation &amp; audit support</h3>
+        <p>Reconciled all company bank accounts against the ledger, resolved discrepancies, and prepared accounts packs and supporting documentation for external accountants and auditors.</p>
+        <span class="stat-line">clean audits &middot; 12-month statement recs</span>
+        <div class="tags"><span class="chip">Bank reconciliation</span><span class="chip">Audit prep</span><span class="chip">General ledger</span><span class="chip">Documentation</span></div>
+      </article>
+
+      <article class="card domain">
+        <div class="domain__ico">OPEX</div>
+        <h3>Expense control &amp; cost management</h3>
+        <p>Redesigned expense-tracking and approval processes for company-wide operational and administrative spend, including a director&#8217;s-loan ledger and reimbursement tracking.</p>
+        <span class="stat-line">monthly opex &minus;15%</span>
+        <div class="tags"><span class="chip">Cost control</span><span class="chip">Expense policy</span><span class="chip">Loan ledger</span><span class="chip">Management accounts</span></div>
+      </article>
+
+      <article class="card domain">
+        <div class="domain__ico">TAX</div>
+        <h3>Tax, inventory &amp; procurement</h3>
+        <p>Resolved supplier and retailer tax issues involving non-registered taxpayers at Atlas Honda, recovered value from written-off inventory, and maintained procurement and inventory records for NHA-outsourced projects.</p>
+        <span class="stat-line">daily reporting accuracy +5%</span>
+        <div class="tags"><span class="chip">Corporate tax</span><span class="chip">Inventory control</span><span class="chip">Procurement compliance</span><span class="chip">SAP Financials</span></div>
+      </article>
+
+    </div>
+  </section>
+
   <section id="projects" class="reveal">
-    <div class="sec-head"><span class="idx">03</span><h2>Projects</h2></div>
+    <div class="sec-head"><span class="idx">04</span><h2>Projects</h2></div>
     <div class="grid">
 
       <article class="card proj">
@@ -639,7 +736,7 @@
   </section>
 
   <section id="skills" class="reveal">
-    <div class="sec-head"><span class="idx">04</span><h2>Skills</h2></div>
+    <div class="sec-head"><span class="idx">05</span><h2>Skills</h2></div>
     <div class="skills">
       <div class="stats">
         <div class="card">
@@ -660,33 +757,131 @@
           <div class="tags"><span class="chip">Model output evaluation</span><span class="chip">Rubric-based ranking</span><span class="chip">Expert annotation</span><span class="chip">RLHF data</span><span class="chip">Error analysis</span><span class="chip">Prompt–response authoring</span></div>
           <h4>Working with AI tools</h4>
           <div class="tags"><span class="chip">Briefing with reference examples</span><span class="chip">Attaching source context</span><span class="chip">Asking for step-by-step evaluation</span><span class="chip">Iterative refinement</span><span class="chip">Prompt design (Google, LinkedIn certified)</span><span class="chip">Prompt-injection awareness</span><span class="chip">Claude Code</span></div>
-          <h4>Finance certifications</h4>
-          <div class="tags"><span class="chip">ACCA (part-qualified)</span><span class="chip">CFI Corporate Finance Foundations (2024)</span><span class="chip">QuickBooks Online Essential Training (2024)</span><span class="chip">SAP Financials Essential Training (2023)</span><span class="chip">Excel for Business Analysts (2023)</span><span class="chip">Excel for FP&amp;A (2023)</span></div>
-          <h4>AI &amp; analytics certifications</h4>
-          <div class="tags"><span class="chip">Business Value Creation — Duke University (2025)</span><span class="chip">Use AI as a Creative or Expert Partner — Google (2025)</span><span class="chip">Design Prompts for Everyday Work Tasks — Google (2025)</span><span class="chip">Start Writing Prompts like a Pro — Google (2025)</span><span class="chip">Speed Up Data Analysis &amp; Presentation Building — Google (2025)</span><span class="chip">Prompt Engineering: How to Talk to the AIs — LinkedIn (2025)</span><span class="chip">Mitigating Prompt Injection &amp; Prompt Hacking — LinkedIn (2025)</span><span class="chip">Time Series Analysis &amp; Forecasting with GPT-4o — LinkedIn (2025)</span><span class="chip">Business Analytics Foundations — LinkedIn (2025)</span><span class="chip">Tips to Ask Questions that Enhance Communication — LinkedIn (2025)</span></div>
         </div>
       </div>
     </div>
   </section>
 
+  <section id="certifications" class="reveal">
+    <div class="sec-head"><span class="idx">06</span><h2>Certifications</h2></div>
+    <div class="certs">
+
+      <div class="cert__group">Professional &amp; finance</div>
+
+      <article class="card cert">
+        <div class="cert__top"><h3>ACCA &mdash; Part-Qualified</h3><span class="verified pro">IN PROGRESS</span></div>
+        <div class="cert__issuer">Association of Chartered Certified Accountants</div>
+        <div class="cert__meta">Exemptions via B.Sc. Accounting &amp; Finance (NUST)</div>
+      </article>
+
+      <article class="card cert">
+        <div class="cert__top"><h3>Corporate Finance Foundations Professional Certificate</h3><span class="verified pro">CFI</span></div>
+        <div class="cert__issuer">Corporate Finance Institute</div>
+        <div class="cert__meta">Issued 2024 &middot; valuation, capital structure, financial strategy</div>
+      </article>
+
+      <article class="card cert">
+        <div class="cert__top"><h3>Business Value Creation</h3><span class="verified">VERIFIED</span></div>
+        <div class="cert__issuer">Duke University (Coursera)</div>
+        <div class="cert__meta">Issued Aug 2025 &middot; ID 3ZB131P2V0T1</div>
+      </article>
+
+      <article class="card cert">
+        <div class="cert__top"><h3>SAP Financials Essential Training</h3><span class="verified pro">LINKEDIN</span></div>
+        <div class="cert__issuer">LinkedIn Learning</div>
+        <div class="cert__meta">Issued 2023</div>
+      </article>
+
+      <article class="card cert">
+        <div class="cert__top"><h3>QuickBooks Online Essential Training</h3><span class="verified pro">LINKEDIN</span></div>
+        <div class="cert__issuer">LinkedIn Learning</div>
+        <div class="cert__meta">Issued 2024</div>
+      </article>
+
+      <article class="card cert">
+        <div class="cert__top"><h3>Excel for Business Analysts &middot; Excel for FP&amp;A</h3><span class="verified pro">LINKEDIN</span></div>
+        <div class="cert__issuer">LinkedIn Learning</div>
+        <div class="cert__meta">Issued 2023 &middot; two courses</div>
+      </article>
+
+      <div class="cert__group">AI, prompting &amp; analytics</div>
+
+      <article class="card cert">
+        <div class="cert__top"><h3>Use AI as a Creative or Expert Partner</h3><span class="verified">VERIFIED</span></div>
+        <div class="cert__issuer">Google (Coursera)</div>
+        <div class="cert__meta">Issued Dec 2025 &middot; ID MZSQHOJTLF9Z</div>
+      </article>
+
+      <article class="card cert">
+        <div class="cert__top"><h3>Speed Up Data Analysis &amp; Presentation Building</h3><span class="verified">VERIFIED</span></div>
+        <div class="cert__issuer">Google (Coursera)</div>
+        <div class="cert__meta">Issued Dec 2025 &middot; ID 1C3EAZ7BHIBO</div>
+      </article>
+
+      <article class="card cert">
+        <div class="cert__top"><h3>Design Prompts for Everyday Work Tasks</h3><span class="verified">VERIFIED</span></div>
+        <div class="cert__issuer">Google (Coursera)</div>
+        <div class="cert__meta">Issued Dec 2025 &middot; ID 0FFTATLR85BH</div>
+      </article>
+
+      <article class="card cert">
+        <div class="cert__top"><h3>Start Writing Prompts like a Pro</h3><span class="verified">VERIFIED</span></div>
+        <div class="cert__issuer">Google (Coursera)</div>
+        <div class="cert__meta">Issued Dec 2025 &middot; ID IF33V09NI491</div>
+      </article>
+
+      <article class="card cert">
+        <div class="cert__top"><h3>Prompt Engineering: How to Talk to the AIs</h3><span class="verified pro">LINKEDIN</span></div>
+        <div class="cert__issuer">LinkedIn Learning</div>
+        <div class="cert__meta">Issued Jul 2025</div>
+      </article>
+
+      <article class="card cert">
+        <div class="cert__top"><h3>Mitigating Prompt Injection &amp; Prompt Hacking</h3><span class="verified pro">LINKEDIN</span></div>
+        <div class="cert__issuer">LinkedIn Learning</div>
+        <div class="cert__meta">Issued Aug 2025</div>
+      </article>
+
+      <article class="card cert">
+        <div class="cert__top"><h3>Time Series Analysis &amp; Forecasting with GPT-4o</h3><span class="verified pro">LINKEDIN</span></div>
+        <div class="cert__issuer">LinkedIn Learning</div>
+        <div class="cert__meta">Issued Aug 2025</div>
+      </article>
+
+      <article class="card cert">
+        <div class="cert__top"><h3>Business Analytics Foundations: Descriptive, Exploratory &amp; Explanatory</h3><span class="verified pro">LINKEDIN</span></div>
+        <div class="cert__issuer">LinkedIn Learning</div>
+        <div class="cert__meta">Issued Aug 2025</div>
+      </article>
+
+      <article class="card cert">
+        <div class="cert__top"><h3>Tips to Ask Questions that Enhance Communication</h3><span class="verified pro">LINKEDIN</span></div>
+        <div class="cert__issuer">LinkedIn Learning</div>
+        <div class="cert__meta">Issued Aug 2025</div>
+      </article>
+
+    </div>
+  </section>
+
   <section id="education" class="reveal">
-    <div class="sec-head"><span class="idx">05</span><h2>Education &amp; achievements</h2></div>
+    <div class="sec-head"><span class="idx">07</span><h2>Education &amp; achievements</h2></div>
     <div class="edu">
       <div class="card">
         <h3>Dublin Business School</h3>
         <div class="deg">M.Sc. Business Analytics</div>
-        <div class="meta">2025 — 2026 · First Class Honours (1.1)</div>
+        <div class="meta">Sep 2025 — Sep 2026 · First Class Honours (1.1)</div>
         <div class="cw">Focus: data analysis, business intelligence, predictive modelling, and data visualization. Coursework includes Applied Statistics &amp; Machine Learning, Data Visualization, Project Management for Business Analytics, and Requirements Analysis &amp; Design.</div>
       </div>
       <div class="card">
         <h3>National University of Sciences and Technology (NUST)</h3>
-        <div class="deg">B.Sc. Accounting &amp; Finance</div>
-        <div class="meta">2018 — 2022 · CGPA 3.00 / 4.00</div>
-        <div class="cw">Coursework: Intermediate Financial Accounting, Management Accounting, Enterprise Management, Financial Modelling, Econometrics. Director of Admin Events, TABA Youth NUST Chapter.</div>
+        <div class="deg">B.Sc. Accounting &amp; Finance — NUST Business School, Islamabad</div>
+        <div class="meta">Sep 2018 — Jun 2022 · degree conferred 31 Aug 2022 · CGPA 3.00 / 4.00 · 136 credits</div>
+        <div class="cw">Four-year programme spanning financial and management accounting, corporate finance, taxation, and quantitative methods, finishing with a 6-credit research project. Director of Admin Events, TABA Youth NUST Chapter; Community Service Learning qualified.</div>
+        <div class="courses"><span class="chip">Financial Modelling</span><span class="chip">Financial Risk Management</span><span class="chip">Derivatives</span><span class="chip">Equity Asset Valuation</span><span class="chip">Investment &amp; Portfolio Mgmt</span><span class="chip">Mergers &amp; Acquisitions</span><span class="chip">Fixed Income Securities</span><span class="chip">Applied Time Series Finance</span><span class="chip">Econometrics</span><span class="chip">Corporate Reporting</span><span class="chip">Audit &amp; Assurance</span><span class="chip">Corporation Tax</span><span class="chip">Advanced Taxation</span><span class="chip">Strategic Accounting &amp; Finance</span><span class="chip">Statistics I &amp; II</span></div>
       </div>
       <div class="card achv">
-        <div class="achv__badge">CFI</div>
-        <div><b>Corporate Finance Foundations Professional Certificate</b><span>Valuation, capital structure &amp; financial strategy · Corporate Finance Institute, 2024</span></div>
+        <div class="achv__badge">ACCA</div>
+        <div><b>Part-Qualified ACCA</b><span>Exemptions earned through the NUST B.Sc. in Accounting &amp; Finance · remaining papers in progress alongside work</span></div>
       </div>
     </div>
   </section>
@@ -703,6 +898,7 @@
       
       <a class="btn" href="https://www.linkedin.com/in/shahram-sajawal/" target="_blank" rel="noopener">LinkedIn</a>
       <a class="btn" href="https://github.com/Shahram-29" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="resume.pdf" target="_blank" rel="noopener">Download CV</a>
     </div>
   </div>
 </section>
